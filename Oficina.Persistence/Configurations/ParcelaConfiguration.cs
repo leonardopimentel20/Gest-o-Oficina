@@ -1,0 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Oficina.Domain.Entities;
+namespace Oficina.Persistence.Configurations;
+public class ParcelaConfiguration : IEntityTypeConfiguration<Parcela> {
+ public void Configure(EntityTypeBuilder<Parcela> b) {
+  b.ConfigureCommon();
+  b.Property(x => x.Valor).HasPrecision(15,3);
+  b.Property(x => x.ValorAberto).HasPrecision(15,3);
+ }
+}

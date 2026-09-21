@@ -1,0 +1,67 @@
+using Microsoft.EntityFrameworkCore;
+using Oficina.Domain.Entities;
+namespace Oficina.Persistence;
+public class OficinaDbContext : DbContext {
+    public OficinaDbContext(DbContextOptions<OficinaDbContext> options) : base(options) { }
+    public DbSet<Empresa> Empresas => Set<Empresa>();
+    public DbSet<Unidade> Unidades => Set<Unidade>();
+    public DbSet<Cliente> Clientes => Set<Cliente>();
+    public DbSet<Endereco> Enderecos => Set<Endereco>();
+    public DbSet<Contato> Contatos => Set<Contato>();
+    public DbSet<Veiculo> Veiculos => Set<Veiculo>();
+    public DbSet<Funcionario> Funcionarios => Set<Funcionario>();
+    public DbSet<Usuario> Usuarios => Set<Usuario>();
+    public DbSet<Perfil> Perfils => Set<Perfil>();
+    public DbSet<Permissao> Permissaos => Set<Permissao>();
+    public DbSet<UsuarioPerfil> UsuarioPerfils => Set<UsuarioPerfil>();
+    public DbSet<PerfilPermissao> PerfilPermissaos => Set<PerfilPermissao>();
+    public DbSet<CategoriaServico> CategoriaServicos => Set<CategoriaServico>();
+    public DbSet<Servico> Servicos => Set<Servico>();
+    public DbSet<CategoriaProduto> CategoriaProdutos => Set<CategoriaProduto>();
+    public DbSet<Produto> Produtos => Set<Produto>();
+    public DbSet<Fornecedor> Fornecedors => Set<Fornecedor>();
+    public DbSet<ProdutoFornecedor> ProdutoFornecedors => Set<ProdutoFornecedor>();
+    public DbSet<Box> Boxs => Set<Box>();
+    public DbSet<Agendamento> Agendamentos => Set<Agendamento>();
+    public DbSet<ChecklistEntrada> ChecklistEntradas => Set<ChecklistEntrada>();
+    public DbSet<ChecklistItem> ChecklistItems => Set<ChecklistItem>();
+    public DbSet<Orcamento> Orcamentos => Set<Orcamento>();
+    public DbSet<OrcamentoVersao> OrcamentoVersaos => Set<OrcamentoVersao>();
+    public DbSet<OrcamentoItem> OrcamentoItems => Set<OrcamentoItem>();
+    public DbSet<OrcamentoAprovacao> OrcamentoAprovacaos => Set<OrcamentoAprovacao>();
+    public DbSet<OrcamentoAprovacaoItem> OrcamentoAprovacaoItems => Set<OrcamentoAprovacaoItem>();
+    public DbSet<LinkAcesso> LinkAcessos => Set<LinkAcesso>();
+    public DbSet<OrdemServico> OrdemServicos => Set<OrdemServico>();
+    public DbSet<OrdemServicoItem> OrdemServicoItems => Set<OrdemServicoItem>();
+    public DbSet<OrdemServicoStatusHistorico> OrdemServicoStatusHistoricos => Set<OrdemServicoStatusHistorico>();
+    public DbSet<Diagnostico> Diagnosticos => Set<Diagnostico>();
+    public DbSet<OrdemServicoFuncionario> OrdemServicoFuncionarios => Set<OrdemServicoFuncionario>();
+    public DbSet<Estoque> Estoques => Set<Estoque>();
+    public DbSet<ReservaEstoque> ReservaEstoques => Set<ReservaEstoque>();
+    public DbSet<MovimentacaoEstoque> MovimentacaoEstoques => Set<MovimentacaoEstoque>();
+    public DbSet<EntradaEstoque> EntradaEstoques => Set<EntradaEstoque>();
+    public DbSet<EntradaEstoqueItem> EntradaEstoqueItems => Set<EntradaEstoqueItem>();
+    public DbSet<Garantia> Garantias => Set<Garantia>();
+    public DbSet<GarantiaPeca> GarantiaPecas => Set<GarantiaPeca>();
+    public DbSet<GarantiaServico> GarantiaServicos => Set<GarantiaServico>();
+    public DbSet<OcorrenciaGarantia> OcorrenciaGarantias => Set<OcorrenciaGarantia>();
+    public DbSet<Arquivo> Arquivos => Set<Arquivo>();
+    public DbSet<Foto> Fotos => Set<Foto>();
+    public DbSet<Laudo> Laudos => Set<Laudo>();
+    public DbSet<ContaReceber> ContaRecebers => Set<ContaReceber>();
+    public DbSet<Parcela> Parcelas => Set<Parcela>();
+    public DbSet<Pagamento> Pagamentos => Set<Pagamento>();
+    public DbSet<ContaPagar> ContaPagars => Set<ContaPagar>();
+    public DbSet<FormaPagamento> FormaPagamentos => Set<FormaPagamento>();
+    public DbSet<Caixa> Caixas => Set<Caixa>();
+    public DbSet<CaixaMovimentacao> CaixaMovimentacaos => Set<CaixaMovimentacao>();
+    public DbSet<ComissaoLancamento> ComissaoLancamentos => Set<ComissaoLancamento>();
+    public DbSet<Notificacao> Notificacaos => Set<Notificacao>();
+    public DbSet<Auditoria> Auditorias => Set<Auditoria>();
+    public DbSet<ArquivoIntegracao> ArquivoIntegracaos => Set<ArquivoIntegracao>();
+    public DbSet<IntegracaoLog> IntegracaoLogs => Set<IntegracaoLog>();
+    protected override void OnModelCreating(ModelBuilder modelBuilder) {
+        modelBuilder.HasDefaultSchema("oficina");
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(OficinaDbContext).Assembly);
+    }
+}

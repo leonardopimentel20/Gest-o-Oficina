@@ -1,29 +1,39 @@
 # Visual Studio
 .vs/
-bin/
-obj/
 *.user
 *.suo
 *.userosscache
-*.ncrunch*
-*.cache
+*.sln.docstates
 
-# Rider
-.idea/
-
-# Visual Studio Code
-.vscode/
-
-# EF Core
-*.db
+# Compilação .NET
+bin/
+obj/
 
 # Logs
 *.log
 
-# NuGet
-*.nupkg
-packages/
+# Arquivos temporários
+*.tmp
+*.temp
 
-# OS files
-.DS_Store
+# Rider / JetBrains
+.idea/
+
+# VS Code
+.vscode/
+
+# Sistema operacional
 Thumbs.db
+.DS_Store
+
+# Segredos/configuração local
+appsettings.Development.json
+.env
+.env.*
+
+# Testes / cobertura
+TestResults/
+coverage/
+coverage.xml
+*.coverage
+*.coveragexml
